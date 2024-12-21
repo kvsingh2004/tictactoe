@@ -1,0 +1,109 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0f7fa; /* Light blue background */
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 64px; /* Larger title */
+    color: #00796b; /* Dark teal color */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Brighter, more playful font */
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px; /* Increased gap for better spacing */
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid #00796b; /* Dark teal border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px; /* Larger font size */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation for hover effect */
+    perspective: 1000px; /* For 3D effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.cell:hover {
+    cursor: pointer;
+    transform: rotateY(10deg) scale(1.05); /* Slight rotation and scale on hover */
+}
+
+.winning-cell {
+    background-color: #4caf50; /* Winning cell color */
+}
+
+#status {
+    margin-top: 20px;
+}
+
+/* Raining animation */
+@keyframes rain {
+    from { top: -10%; }
+    to { top: 100%; }
+}
+
+.rain-x {
+    position: absolute;
+    color: red; /* Color for Xs */
+    font-size: 48px; /* Larger font size for raining Xs */
+}
+
+.rain-o {
+    position: absolute;
+    color: blue; /* Color for Os */
+    font-size: 48px; /* Larger font size for raining Os */
+}
+
+/* Popup styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Start small */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    font-size: 48px; /* Larger font for popup */
+}
+
+.popup.show {
+   animation: popupAnimation 0.5s forwards; /* Popup animation */
+}
+
+@keyframes popupAnimation {
+   from { transform: translate(-50%, -50%) scale(0); }
+   to { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Button styles */
+button {
+   padding: 10px 20px;
+   font-size: 18px;
+   background-color: #00796b; /* Dark teal button */
+   color: white;
+   border-radius: 5px;
+   border: none;
+   cursor: pointer;
+   transition: background-color 0.3s ease; /* Transition effect for button */
+   margin-top: 20px; 
+}
+
+button:hover {
+   background-color: #004d40; /* Darker shade on hover */
+}
